@@ -22,4 +22,7 @@ def create_app(config_class=Config, db_engine=None):
     app.db_storage = DBStorage(db_engine=db_engine)
     app.db_storage.reload()
 
+    from Routes import bp
+    app.register_blueprint(bp)
+
     return app
